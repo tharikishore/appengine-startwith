@@ -1,6 +1,4 @@
-## Google Cloud SQL/App Engine native Hibernate JPA demo
-
-This demo contains an example program that shows how to use [Hibernate](http://www.hibernate.org/) [JPA](http://en.wikipedia.org/wiki/Java_Persistence_API) with native MySQL connections to connect from [Google App Engine](https://developers.google.com/appengine/) to [Google Cloud SQL](https://developers.google.com/cloud-sql) both in development mode and on App Engine.
+## Google Appengine + Gaelyk + Cloud SQL/App Engine native Hibernate JPA demo
 
 * This project is build with gradle 
 * Is configured to use Hibernate (if needed)
@@ -50,6 +48,8 @@ Make sure the `demo` database exists on the Cloud SQL instance.
 To deploy the app run the following command:
 
     mvn appengine:update
+    	or
+    gradle appengineUpdate
 
 
 ## Contributing changes
