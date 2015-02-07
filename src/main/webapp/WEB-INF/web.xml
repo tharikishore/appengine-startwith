@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app
+        version="2.5"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>demo</servlet-name>
+        <servlet-class>com.google.appengine.demos.HibernateJpaServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>demo</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- A servlet context listener to initialize the plugin system -->
+    <listener>
+        <listener-class>groovyx.gaelyk.GaelykServletContextListener</listener-class>
+    </listener>
+     
+    <!-- The Gaelyk Groovlet servlet -->
+    <servlet>
+        <servlet-name>GroovletServlet</servlet-name>
+        <servlet-class>groovyx.gaelyk.GaelykServlet</servlet-class>
+    </servlet>
+     
+    <!-- The Gaelyk template servlet -->
+    <servlet>
+        <servlet-name>TemplateServlet</servlet-name>
+        <servlet-class>groovyx.gaelyk.GaelykTemplateServlet</servlet-class>
+    </servlet>
+     
+    <!-- The URL routing filter -->
+    <filter>
+        <filter-name>RoutesFilter</filter-name>
+        <filter-class>groovyx.gaelyk.routes.RoutesFilter</filter-class>
+    </filter>
+     
+    <!-- Specify a mapping between *.ctr URLs and Groovlets -->
+    <servlet-mapping>
+        <servlet-name>GroovletServlet</servlet-name>
+        <url-pattern>*.ctr</url-pattern>
+    </servlet-mapping>
+     
+    <!-- Specify a mapping between *.vew URLs and templates -->
+    <servlet-mapping>
+        <servlet-name>TemplateServlet</servlet-name>
+        <url-pattern>*.vew</url-pattern>
+    </servlet-mapping>
+     
+    <filter-mapping>
+        <filter-name>RoutesFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+     
+    <!-- Define index.gtpl as a welcome file -->
+    <welcome-file-list>
+        <welcome-file>index.vew</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>

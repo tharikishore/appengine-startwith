@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+  <application>demo</application>
+  <version>1</version>
+  <threadsafe>true</threadsafe>
+  <use-google-connector-j>true</use-google-connector-j>
+
+  <system-properties>
+	<property name="file.encoding" value="UTF-8" />
+	<property name="groovy.source.encoding" value="UTF-8" />
+
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    <property name="cloudsql.url" value="jdbc:mysql://localhost/qspec?user=root&amp;password=password"/>
+    <property name="cloudsql.url.dev" value="jdbc:mysql://localhost/qspec?user=root&amp;password=password"/>
+  </system-properties>
+
+ 
+<!-- Uncomment this section if you want your application to be able to receive XMPP messages -->
+<!-- Similarily, if you want to receive incoming emails -->
+<!--
+<inbound-services>
+<service>xmpp_message</service>
+<service>mail</service>
+</inbound-services>
+-->
+ 
+	<static-files>
+		<exclude path="/WEB-INF/**.groovy" />
+		<exclude path="**.gtpl" />
+	</static-files>
+
+</appengine-web-app>
