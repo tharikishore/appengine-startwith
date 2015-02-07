@@ -2,6 +2,10 @@
 
 This demo contains an example program that shows how to use [Hibernate](http://www.hibernate.org/) [JPA](http://en.wikipedia.org/wiki/Java_Persistence_API) with native MySQL connections to connect from [Google App Engine](https://developers.google.com/appengine/) to [Google Cloud SQL](https://developers.google.com/cloud-sql) both in development mode and on App Engine.
 
+* This project is build with gradle 
+* Is configured to use Hibernate (if needed)
+* Configured for Gaelyk
+
 
 ## Requirements
 
